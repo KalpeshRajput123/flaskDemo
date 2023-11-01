@@ -104,11 +104,10 @@ def m():
 def l():
     return render_template("laptops.html")
 
-'''
 @app.route("/accessories")
 def a():
     return render_template("accessories.html")
-'''
+
 
 
 
