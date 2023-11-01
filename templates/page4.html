@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Electronic Shop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='../static/page4.css')}}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        .topnav {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: white;
+            color: black;
+        }
+        .search-bar {
+            text-align: center;
+            padding: 10px;
+        }
+        .search-input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .search-button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: black ;
+        }
+        .dropdown {
+            text-align: center;
+            padding: 10 px;
+        }
+        #product-dropdown {
+            width: 200px;
+            padding:6px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex-basis: 30%;
+            text-align: center;
+            margin: 10px;
+        }
+        .column img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>𝐀𝐚𝐫𝐚𝐦𝐛𝐡 𝐄𝐥𝐞b𝐜𝐭𝐫𝐨𝐧𝐢𝐜𝐬</h1>
+        <p>𝓐𝓷𝔂 𝓣𝔂𝓹𝓮 𝓞𝓯 𝓜𝓸𝓫𝓲𝓵𝓮, 𝓛𝓪𝓹𝓽𝓸𝓫, 𝓪𝓷𝓭 𝓐𝓬𝓬𝓮𝓼𝓼𝓸𝓻𝓲𝓮𝓼 𝓐𝓿𝓪𝓲𝓲𝓵𝓪𝓫𝓵𝓮</p>
+    </div>
+
+    <div class="topnav">
+        <a href="/login">Log In</a>
+        <a href="/registration">Sign Up</a>
+        <a href="/user">User</a>
+    </div>
+
+
+    <div class="search-bar">
+        <form action="/laptops" method="get">
+            <input type="text" placeholder="Search..." name="names" class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+
+    <div class="dropdown">
+        <select id="product-dropdown" onchange="navigateToSelected()">
+            <option value="">Select a Category</option>
+            <option value="/mobiles">Mobiles</option>
+            <option value="/laptops">Laptops</option>
+            <option value="/accessories">Accessories</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h2>Mobiles</h2>
+            <a href="/mobiles">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCbfiZ0j2Bnnyzj7510khlk_fQc9YKpsrfLg&usqp=CAU">
+            </a>
+        </div>
+
+        <div class="column">
+            <h2>Laptops</h2>
+            <a href="/laptops">
+                <img src="https://st2.depositphotos.com/1000128/5912/i/200/depositphotos_59120237-stock-photo-row-of-laptops.jpg">
+            </a>
+        </div>
+
+        <div class="column">
+            <h2>Accessories</h2>
+            <a href="/accessories">
+                <img src="https://t4.ftcdn.net/jpg/01/42/34/87/360_F_142348781_I6OPT1NpR1a4Kpyx1CFvzA3hEUUXNhtW.jpg">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function navigateToSelected() {
+            const dropdown = document.getElementById("product-dropdown");
+            const selectedValue = dropdown.value;
+            if (selectedValue) {
+                window.location.href = selectedValue;
+            }
+        }
+    </script>
+
+
+
+</body>
+</html>
